@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Mensagens de Amor</title> 
+  <link rel="stylesheet" href="styles.css"> 
+ <style type="text/css" id="dcoder_stylesheet">body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #ffafbd, #ffc3a0);
+    color: #333;
+    text-align: center;
+    padding: 50px;
+    margin: 0;
+}
+
+#login-section, #content-section {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+h2, h1 {
+    color: #ff6f61;
+    font-size: 24px;
+}
+
+input, button {
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    border: 1px solid #ff6f61;
+    border-radius: 5px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #ff3d3d;
+}
+
+button {
+    background-color: #ff6f61;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff3d3d;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff6f61;
+}</style></head> 
+ <body> 
+  <div id="login-section"> 
+   <h2>Digite a senha para acessar</h2> 
+   <input type="password" id="password" placeholder="Senha"> <button onclick="checkPassword()">Entrar</button> 
+  </div> 
+  <div id="content-section" style="display:none;"> 
+   <h1>Para minha amada</h1> 
+   <img id="photo" src="https://i.imgur.com/EC0XWtn.jpg" alt="Foto da Namorada"> 
+   <p id="message">Mensagem de amor aparecerá aqui...</p> <button id="new-message-button" onclick="showNewMessage()">Nova Mensagem</button> 
+  </div> 
+  <script src="scripts.js"></script> 
+ 
+<script type="text/javascript" id="dcoder_script">const messages = [
+    "Meu amor, cada dia ao seu lado é um presente. Você é minha inspiração e meu porto seguro.",
+    "Quando olho nos seus olhos, vejo o brilho de mil estrelas. Você ilumina minha vida como ninguém mais.",
+    "Nenhum obstáculo é grande demais quando tenho você ao meu lado. Juntos, somos imbatíveis!",
+    "Você é a razão do meu sorriso todos os dias. Obrigado por ser tão incrível!",
+    "Mesmo nos dias difíceis, lembre-se que estou aqui para te apoiar. Você é forte e capaz de superar tudo!",
+    "Nosso amor é como uma chama que nunca se apaga, sempre brilhando com intensidade.",
+    "Obrigado por ser meu parceiro de vida, meu amigo e meu amor eterno. Com você, tudo é possível.",
+    "Você é meu anjo da guarda, meu guia e minha inspiração. Com você, a vida é uma aventura emocionante.",
+    "Com você, aprendi que o amor verdadeiro é inabalável. Ele nos fortalece e nos une em um vínculo eterno.",
+    "Seu amor é minha fonte de alegria e esperança. Com você, todos os dias são cheios de sorrisos e amor.",
+    "Em seus braços, encontrei o lar que sempre procurei. Você é meu refúgio seguro.",
+    "Nos momentos de tristeza, pense em nós e saiba que estou aqui para te consolar.",
+    "A cada amanhecer, agradeço por ter você ao meu lado. Você é minha luz e minha força.",
+    "Nosso amor é um laço eterno, inquebrável e cheio de carinho.",
+    "Você faz meu coração bater mais forte. Te amo mais do que palavras podem expressar.",
+    "Estar com você é como viver um sonho maravilhoso. Você é minha realidade perfeita.",
+    "Nada neste mundo pode nos separar, pois nosso amor é forte e verdadeiro.",
+    "Você é a pessoa mais incrível que já conheci. Sou grato por cada momento ao seu lado.",
+    "Nosso amor é uma jornada linda que quero percorrer ao seu lado para sempre.",
+    "Sempre que precisar de um amigo, um confidente ou um amor, lembre-se que estou aqui.",
+    "Você é meu mundo, minha razão de viver. Te amo hoje e sempre.",
+    "Você me completa de todas as formas possíveis. Juntos, somos invencíveis.",
+    "Nosso amor é a melodia perfeita, uma canção que toca meu coração.",
+    "Com você, cada dia é uma nova aventura cheia de alegria e amor.",
+    "Seu sorriso ilumina até os meus dias mais sombrios. Te amo infinitamente.",
+    "Obrigado por ser a razão dos meus melhores momentos. Você é tudo para mim.",
+    "Em você encontrei o amor que sempre sonhei. Sou eternamente grato por isso.",
+    "Você é minha estrela-guia, meu amor eterno. Juntos, somos um só.",
+    "Nada pode abalar o que sentimos um pelo outro. Nosso amor é inquebrável.",
+    "Você é o melhor presente que a vida me deu. Te amo com todo meu coração.",
+    "Seu amor é como um farol, guiando-me através das tempestades da vida.",
+    "Nos momentos difíceis, lembre-se que meu amor por você é incondicional e eterno.",
+    "Você é minha razão de viver, meu sonho realizado. Te amo mais do que qualquer coisa.",
+    "Cada momento com você é uma bênção que agradeço todos os dias.",
+    "Você é meu porto seguro, onde encontro paz e amor incondicional.",
+    "Juntos, somos mais fortes e capazes de superar qualquer desafio que a vida nos apresente.",
+    "Seu sorriso é a luz que ilumina meus dias mais sombrios.",
+    "Você é minha metade, meu complemento perfeito. Com você, sou completo.",
+    "O amor que sinto por você cresce a cada dia, mais forte e profundo.",
+    "Você é a melhor coisa que já aconteceu na minha vida. Sou eternamente grato por ter você.",
+    "Nosso amor é um elo inquebrável que nos une em todas as circunstâncias.",
+    "Sua presença em minha vida é um presente que agradeço todos os dias.",
+    "Você me faz querer ser uma pessoa melhor, só para merecer seu amor.",
+    "A cada olhar, a cada toque, meu amor por você se renova e cresce.",
+    "Você é a melodia que embala meus sonhos e acalma meu coração.",
+    "Nosso amor é uma jornada maravilhosa que quero percorrer ao seu lado para sempre.",
+    "Você é minha fonte de alegria, esperança e amor verdadeiro.",
+    "Em seus braços, encontro o conforto e a segurança que meu coração procura.",
+    "Com você, aprendi o verdadeiro significado do amor e da felicidade.",
+    "Nosso amor é um conto de fadas que se torna mais lindo a cada capítulo.",
+    "Você é a razão dos meus sorrisos, das minhas alegrias e da minha felicidade.",
+    "Cada momento ao seu lado é uma lembrança preciosa que guardo no meu coração.",
+    "Você é meu amor eterno, meu confidente e meu melhor amigo.",
+    "Nosso amor é uma chama eterna que nunca se apaga, iluminando nossos caminhos.",
+    "Com você, a vida é mais doce, mais alegre e infinitamente mais bela.",
+    "Você é meu sonho realizado, minha felicidade constante. Te amo imensamente.",
+    "Nos momentos de tristeza, seu amor é meu consolo e minha força.",
+    "Você é o melhor presente que a vida poderia me dar. Te amo com toda minha alma.",
+    "Cada dia ao seu lado é uma nova aventura cheia de amor e alegria.",
+    "Você é minha inspiração, meu amor verdadeiro e minha razão de viver."
+];
+
+let currentMessageIndex = -1;
+let isLoggedIn = false;
+
+function checkPassword() {
+    const password = document.getElementById('password').value;
+    const correctPassword = '130223';
+
+    if (password === correctPassword) {
+        isLoggedIn = true;
+        document.getElementById('login-section').style.display = 'none';
+        document.getElementById('content-section').style.display = 'block';
+        showNewMessage();
+    } else {
+        alert('Senha incorreta! Tente novamente.');
+    }
+}
+
+function showNewMessage() {
+    let newIndex;
+    do {
+        newIndex = Math.floor(Math.random() * messages.length);
+    } while (newIndex === currentMessageIndex);
+    currentMessageIndex = newIndex;
+    document.getElementById('message').innerText = messages[currentMessageIndex];
+}</script></body></html>
